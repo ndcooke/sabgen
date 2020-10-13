@@ -9,7 +9,7 @@ function charGen() {
     var cha;
     var hp;
     var sp;
-    var weapon = "Club";
+    var weapon = "club";
     var trinket;
     var luckyCharm;
 
@@ -67,28 +67,28 @@ function charGen() {
         background = "Acolyte";
     } else if (br <= 2) {
         background = "Charlatan";
-        weapon = "Dagger";
+        weapon = "dagger";
     } else if (br <= 4) {
         background = "Criminal";
-        weapon = "Dagger";
+        weapon = "dagger";
     } else if (br <= 7) {
         background = "Entertainer";
     } else if (br <= 10) {
         background = "Folk Hero";
-        weapon = "Light crossbow";
+        weapon = "light crossbow";
     } else if (br <= 13) {
         background = "Guild Artisan";
     } else if (br <= 14) {
         background = "Hermit";
     } else if (br <= 15) {
         background = "Noble";
-        weapon = "Shortsword";
+        weapon = "shortsword";
     } else if (br <= 16) {
         background = "Outlander";
-        weapon = "Quarterstaff";
+        weapon = "quarterstaff";
     } else if (br <= 17) {
         background = "Sage";
-        weapon = "Dagger";
+        weapon = "dagger";
     } else if (br <= 18) {
         pr = roll(6);
         if (pr == 1) {
@@ -96,12 +96,13 @@ function charGen() {
         } else {
             background = "Sailor";
         }
+        weapon = "dagger";
     } else if (br <= 19) {
         background = "Soldier";
-        weapon = "Longsword";
+        weapon = "longsword";
     } else if (br <= 20) {
         background = "Urchin";
-        weapon = "Sling";
+        weapon = "sling";
     }
 
     str = roll3d6();
@@ -113,12 +114,12 @@ function charGen() {
 
     hp = Math.max(1,Math.trunc((con - 10) / 2) + roll(4));
     sp = roll(4);
-	trinket = trinket();
+	trinket = getTrinket();
 
 
     var out = `<br>${race} ${background}, STR ${str}, DEX ${dex}, CON ${con}, INT ${int}, WIS ${wis}, CHA ${cha}, HP ${hp}, Inv: ${sp} sp, ${weapon}, ${trinket}`;
 	if (background == "Pirate") {
-		luckyCharm = trinket();
+		luckyCharm = getTrinket();
         out += `, ${luckyCharm} (lucky charm)`;
 	}
     document.getElementById('char').innerHTML += out;
@@ -136,7 +137,7 @@ function roll3d6() {
     return x;
 }
 
-function trinket() {
+function getTrinket() {
     var x = Math.floor(Math.random() * trinkets.length);
     return trinkets[x];
 }
