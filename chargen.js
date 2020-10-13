@@ -3,7 +3,7 @@ function charGen() {
     var background;
     var str;
     var dex;
-    var con;
+    var con = 0;
     var int;
     var wis;
     var cha;
@@ -16,12 +16,15 @@ function charGen() {
     var r = roll(20);
     if (r <= 8) {
         race = "Human";
+        con = 1;
     } else if (r <= 18) {
         var nh = roll(20);
         if (nh <= 2) {
             race = "Hill Dwarf";
+            con = 2;
         } else if (nh <= 4) { 
             race = "Mountain Dwarf";
+            con = 2;
         } else if (nh <= 6) { 
             race = "High Elf";
         } else if (nh <= 8) { 
@@ -30,14 +33,17 @@ function charGen() {
             race = "Half-Elf";
         } else if (nh <= 10) { 
             race = "Half-Orc";
+            con = 1;
         } else if (nh <= 12) { 
             race = "Lightfoot Halfling";
         } else if (nh <= 14) { 
             race = "Stout Halfling";
+            con = 1;
         } else if (nh <= 16) { 
             race = "Forest Gnome";
         } else if (nh <= 18) { 
             race = "Rock Gnome";
+            con = 1;
         } else if (nh <= 19) { 
             race = "Tiefling";
         } else if (nh <= 20) { 
@@ -55,10 +61,12 @@ function charGen() {
             race = "Kenku";
         } else if (vh <= 13) {
             race = "Lizardfolk";
+            con = 2;
         } else if (vh <= 18) {
             race = "Tabaxi";
         } else if (vh <= 20) {
             race = "Triton";
+            con = 1;
         }
     }
 
@@ -90,7 +98,7 @@ function charGen() {
         background = "Sage";
         weapon = "dagger";
     } else if (br <= 18) {
-        pr = roll(6);
+        pr = roll(3);
         if (pr == 1) {
             background = "Pirate";
         } else {
@@ -107,7 +115,7 @@ function charGen() {
 
     str = roll3d6();
     dex = roll3d6();
-    con = roll3d6();
+    con += roll3d6();
     int = roll3d6();
     wis = roll3d6();
     cha = roll3d6();
