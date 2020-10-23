@@ -136,7 +136,7 @@ function charGen() {
 
 
 function roll(size) {
-    var x = Math.max(1, Math.floor(Math.random() * (size + 1)));
+    var x = Math.max(1, Math.floor(rando() * (size + 1)));
     console.log(`1d${size}=${x}`);
     return x;
 }
@@ -147,7 +147,7 @@ function roll3d6() {
 }
 
 function getTrinket() {
-    var x = Math.floor(Math.random() * trinkets.length);
+    var x = Math.floor(rando() * trinkets.length);
     return trinkets[x];
 }
 
